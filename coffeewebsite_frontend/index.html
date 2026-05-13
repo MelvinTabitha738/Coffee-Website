@@ -47,7 +47,8 @@
 
   <div class="cart-footer">
     <p>Total: KSh <span id="cart-total">0</span></p>
-    <button class="checkout-btn">Checkout</button>
+    <button id="clear-cart-btn">Clear Cart</button>
+    <button id="checkout-btn" class="checkout-btn">Checkout</button>
   </div>
 </div>
 
@@ -82,10 +83,10 @@
             <h2 class="section-title">About Us</h2>
             <p class="text">At coffee House in Tabitha's Coffee,Kenya,we pride ourselves on being a go-to destination for coffee lovers and conversation seekers alike.We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere,where guests can relax,unwind,and enjoy their time in comfort.</p>
             <div class="social-link-list">
-                <a href="#" class="social-link"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 
                
                 
@@ -124,8 +125,8 @@
         <img src="images/refreshment.png" alt="refreshment drink" class="menu-image">
         <h3 class="name">Refreshment</h3>
         <p class="detail">Fruit and icy refreshing drink to make you feel refreshed.</p>
-        <p class="price">KSh 200</p>
-        <button class="add-to-cart" data-name="Refreshment" data-price="200">
+        <p class="price">KSh 1</p>
+        <button class="add-to-cart" data-name="Refreshment" data-price="1">
           Add to Cart
         </button>
       </li>
@@ -247,7 +248,7 @@
             <ul class="contact-info-list">
                  <li class="contact-info">
                   <i class="fa-solid fa-location-crosshairs"></i>
-                  <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+                  <p>Kenya, Nairobi, Kikuyu road</p>
 
                 </li>
                 <li class="contact-info">
@@ -291,12 +292,12 @@
     <!-- footer -->
     <footer class="footer-section">
       <div class="footer-content">
-        <p class="copyright-text">@ 2024 Coffee Shop</p>
+        <p class="copyright-text">@ 2026 Coffee Shop</p>
         <div class="link-list">
             <a href="#" class="sociallink"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" class="sociallink"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="#" class="sociallink"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="#" class="sociallink"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 
         </div>
         <p class="policy-text">
@@ -306,12 +307,94 @@
         </p>
       </div>
     </footer>
+   <div id="checkout-modal" class="checkout-modal">
+
+  <div class="checkout-content">
+
+    <h2>Checkout</h2>
+
+    <!-- CART ITEMS -->
+    <div id="checkout-items"></div>
+
+    <h3>
+      Total: KSh <span id="checkout-total">0</span>
+    </h3>
+
+    <!-- CUSTOMER DETAILS -->
+    <input
+      type="text"
+      id="customer-name"
+      placeholder="Your Name"
+      required
+    />
+
+    <input
+      type="tel"
+      id="customer-phone"
+      placeholder="Phone Number (07XXXXXXXX)"
+      required
+    />
+
+    <small id="phone-error" class="error-text"></small>
+
+    <!-- PAYMENT STATUS (NEW - IMPORTANT) -->
+    <div id="payment-status" class="payment-status"></div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="checkout-actions">
+
+      <button id="confirm-order">
+        Confirm & Pay via M-Pesa
+      </button>
+
+      <button id="close-checkout">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- CANCEL CONFIRM MODAL -->
+<div id="cancel-modal" class="cancel-modal">
+  <div class="cancel-content">
+    <p>Are you sure you want to cancel your order?</p>
+
+    <div class="cancel-actions">
+      <button id="confirm-cancel">Yes, Cancel</button>
+      <button id="keep-order">Keep Order</button>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+<!-- SUCCESS MODAL -->
+<div id="success-modal" class="success-modal">
+  <div class="success-content">
+
+    <div class="success-check">
+      ✓
+    </div>
+
+    <h2>Order Successful!</h2>
+
+    <p>Your coffee order has been placed successfully.</p>
+
+    <button id="close-success">Done</button>
+
+  </div>
+</div>
+<div id="payment-status-container"></div>
+<div id="menu-overlay"></div>
     </main>
     <!-- linking swiper script -->
      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- linking custom script -->
     <script src="script.js"></script>
-    <div id="menu-overlay"></div>
+    
 
 </body>
 </html>

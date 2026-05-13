@@ -392,6 +392,12 @@ align-items: end;
     right: 5%;
   }
 }
+/* price */
+.price{
+    color: #f3961c;
+    margin-top: 10px;
+    
+}
 /* testimonial section styling */
 .testimonials-section{
   padding: 100px 0 100px;
@@ -586,7 +592,366 @@ i:hover{
     color: #3b141c;
     font-weight: 600;
 }
+/* checkout styling */
+.checkout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
 
+.checkout-modal.active {
+  display: flex;
+}
+
+.checkout-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.checkout-content h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #3b141c;
+}
+
+#checkout-items {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
+#checkout-items div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.checkout-content h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #f3961c;
+}
+
+.checkout-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.checkout-content input:focus {
+  border-color: #f3961c;
+}
+
+.checkout-content input.invalid {
+  border-color: red;
+}
+
+/* Buttons */
+.checkout-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#confirm-order {
+  flex: 1;
+  background: #f3961c;
+  color: #3b141c;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#confirm-order:hover {
+  background: #d87f0f;
+  color: white;
+}
+
+#close-checkout {
+  flex: 1;
+  background: transparent;
+  border: 2px solid #3b141c;
+  color: #3b141c;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#close-checkout:hover {
+  background: #3b141c;
+  color: white;
+}
+
+/* Error text */
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Invalid input */
+input.invalid {
+  border-color: red;
+}
+
+/* Cancel Modal */
+.cancel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 3000;
+}
+
+.cancel-modal.active {
+  display: flex;
+}
+
+.cancel-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 300px;
+}
+
+.cancel-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+#confirm-cancel {
+  flex: 1;
+  background: red;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+#keep-order {
+  flex: 1;
+  background: #f3961c;
+  color: #3b141c;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.confirm-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 300px;
+  animation: fadeIn 0.3s ease;
+}
+
+.confirm-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.confirm-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#yes-cancel {
+  background: #f3961c;
+  color: white;
+}
+
+#no-cancel {
+  background: #ddd;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+ #clear-cart-btn:hover {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#clear-cart-btn{
+    color: red;
+}
+#clear-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.hidden {
+  display: none !important;
+}
+/* small animation */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* payment status */
+.payment-status {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  background: #f5f5f5;
+  color: #333;
+  text-align: center;
+}
+/* =========================
+   SUCCESS MODAL
+========================= */
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.success-modal.active {
+  display: flex;
+}
+
+.success-content {
+  background: #fff;
+  width: 90%;
+  max-width: 350px;
+  padding: 30px 25px;
+  border-radius: 18px;
+  text-align: center;
+  animation: popupScale 0.35s ease;
+}
+
+.success-check {
+  width: 90px;
+  height: 90px;
+  background: #22c55e;
+  color: white;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: tickPop 0.5s ease;
+}
+
+.success-content h2 {
+  color: #3b141c;
+  margin-bottom: 10px;
+}
+
+.success-content p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#close-success {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f3961c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#close-success:hover {
+  background: #d87f0f;
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tickPop {
+  0% {
+    transform: scale(0);
+  }
+
+  80% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
 /* footer styling */
 .footer-section{
     background-color:#252525 ;

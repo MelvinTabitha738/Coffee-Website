@@ -1,51 +1,156 @@
-# Coffee-Website
-Responsive coffee website with  smooth scroll, and animations.
+# ☕ Coffee House - Full Stack Coffee Ordering System
+
+Welcome to **Coffee House**, a fully responsive coffee shop web application built using **HTML, CSS, JavaScript (frontend)** and **Django REST Framework (backend)** with **M-Pesa Daraja STK Push integration** for real-time payments.
+
+This project evolved from a simple frontend landing page into a **full-stack e-commerce-style ordering system** with live payment processing and order tracking.
 
 
-# ☕ Coffee House - Responsive Web Design Project
+##  Features
 
-Welcome to **Coffee House**, a fully responsive landing page for a coffee shop, built with **HTML**, **CSS**, and **JavaScript**. This project was created as part of my journey to perfect responsive web design and improve user interactivity.
+### 🎨 Frontend
+- ✅ Responsive landing page (mobile-first design)
+- ✅ Smooth scrolling navigation
+- ✅ Interactive menu system
+- ✅ Shopping cart functionality (add/remove/update items)
+- ✅ Checkout modal with user details form
+- ✅ Real-time payment status popup
+- ✅ Order success & failure modals
 
-## 🌟 Features
+### ⚙️ Backend (Django REST Framework)
+- ✅ REST API for order creation and management
+- ✅ Customer and order relational database design
+- ✅ Order item tracking system
+- ✅ Order status tracking endpoint
+- ✅ Payment model integration
 
-- ✅ Responsive layout across devices (mobile-first design)
-- ✅ Smooth scroll to sections
-- ✅ Toggleable mobile menu
-- ✅ Animate elements on scroll
+### 💳 M-Pesa Daraja Integration
+- ✅ STK Push initiation (Sim Toolkit prompt)
+- ✅ Callback handling from Safaricom Daraja API
+- ✅ Automatic payment status update (SUCCESS / FAILED)
+- ✅ Receipt number storage (MpesaReceiptNumber)
+- ✅ Payment tracking via CheckoutRequestID
+- ✅ Polling-based frontend payment status updates
 
+---
+
+## System Architecture
+
+Frontend (HTML/CSS/JS)
+        ↓
+Django REST API (Orders)
+        ↓
+M-Pesa Daraja API (STK Push)
+        ↓
+Safaricom Callback Webhook
+        ↓
+Backend updates Payment + Order status
+        ↓
+Frontend polls order status endpoint
+
+---
 
 ## 💻 Technologies Used
 
+### Frontend
 - HTML5
-- CSS3 (Flexbox, Media Queries, CSS Variables)
-- JavaScript (Vanilla
+- CSS3 (Flexbox, Media Queries)
+- Vanilla JavaScript
 
-## 📂 Folder Structure
+### Backend
+- Python 3
+- Django
+- Django REST Framework
+
+### Payments
+- Safaricom Daraja API (M-Pesa STK Push)
+- Ngrok (for local webhook testing)
+
+---
+
+##  Project Structure
+
 
 coffee-website/
 │
-├── index.html # Main HTML file
-├── style.css # Styling and themes
-├── script.js # JS for theme toggle and interactivity
-└── README.md # This file
+├── coffeewebsite-frontend/
+│ ├── index.html
+│ ├── style.css
+│ └── script.js
+│
+├── coffee-backend/
+│ ├── orders/
+│ │ ├── views.py
+│ │ ├── models.py
+│ │ ├── serializers.py
+│ │ ├── urls.py
+│ │ ├── mpesa.py
+│ │ └── utils.py
+│ │
+│ └── manage.py
+│
+└── README.md
 
 
+---
+
+## 🚀 API Endpoints
+
+### Orders
+- `POST /api/orders/` → Create order + trigger STK Push
+- `GET /api/orders/<id>/` → Get order payment status
+
+### M-Pesa
+- `POST /api/mpesa/callback/` → Daraja payment callback
+- `POST /api/mpesa/stk/` → Manual STK push test endpoint
+
+---
+
+## 🔄 Payment Flow
+
+1. User adds items to cart
+2. User enters name & phone number
+3. Backend creates order
+4. STK Push is sent to user phone
+5. User enters M-Pesa PIN
+6. Safaricom sends callback to backend
+7. Backend updates:
+   - Payment status
+   - Order status
+8. Frontend polls `/orders/<id>/`
+9. UI updates:
+   - Waiting → Success / Failed
+
+---
 
 ## 🚀 Getting Started
 
-To view the website locally:
+### 1. Clone repository
 
-1. Clone the repository  
-   ```bash
-  https://github.com/MelvinTabitha738/Coffee-Website.git
-Navigate to the project folder
-cd coffee-website
-Open index.html in your browser.
+git clone https://github.com/MelvinTabitha738/Coffee-Website.git
+2. Frontend
+cd coffeewebsite-frontend
+npm install
+open index.html
+3. Backend
+cd coffee-backend
+pip install -r requirements.txt
+python manage.py runserver
+4. Ngrok (for callbacks)
+ngrok http 8000
 
-🙋🏽‍♂️ Author
+Update callback URL in Daraja settings.
+
+🧠 Key Learning Highlights
+Full-stack integration (frontend ↔ backend)
+REST API design with Django
+Real-time payment processing
+Webhook handling (M-Pesa callbacks)
+Async-like UI updates via polling
+State management between cart → order → payment
+
+ Author
 Melvin Tabitha
-Passionate front-end developer and designer focused on clean, interactive, and responsive web experiences.
-Connect with me on LinkedIn https://www.linkedin.com/in/melvin-tabitha-5abb782a2/
+Frontend & Backend Developer | Passionate about AI, Web Systems & Fintech Solutions
 
-📃 License
-This project is open source and free to use for educational and personal purposes.
+🔗 LinkedIn:
+https://www.linkedin.com/in/melvin-tabitha-5abb782a2/
