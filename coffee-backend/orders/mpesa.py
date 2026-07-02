@@ -40,7 +40,7 @@ def stk_push(phone, amount):
         "Password": password,
         "Timestamp": timestamp,
         "TransactionType": "CustomerPayBillOnline",
-        "Amount": int(float(amount)),# test amount (later replace with order total)
+        "Amount": int(float(amount)),
         "PartyA": phone,
         "PartyB": settings.MPESA_SHORTCODE,
         "PhoneNumber": phone,

@@ -3,398 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffe Website</title>
-    <!-- linking font awsome for icons -->
+    <meta name="description" content="Tabitha's Coffee — Nairobi's finest coffee house. Order premium hot & cold beverages, desserts, and combos online with M-Pesa.">
+    <title>Tabitha's Coffee | Premium Coffee House Nairobi</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- linking swiper css -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- header -->
-    <header>
-     <nav class="navbar section-content">
-     <a href="#" class="nav-logo">
-       <h2 class="logo-text">☕ Coffee</h2> 
-     </a> 
-     <ul class="nav-menu">
-        <button id="menu-close-button" class="fas fa-times" nav-link></button>
-     <li class="nav-item">
-     <a href="#home" class="nav-link">Home</a></li>
-     <li class="nav-item">
-        <a href="#about" class="nav-link">About</a></li>
-     <li class="nav-item">
-            <a href="#menu" class="nav-link">Menu</a></li>
-     <li class="nav-item">
-                <a href="#testimonials" class="nav-link">Testimonials</a></li>
-     <li class="nav-item">
-                    <a href="#gallery" class="nav-link">Gallery</a></li>
-     <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a></li>
-     <li class="nav-item cart-container">
-         <div class="cart-icon" id="cart-icon">
-             🛒 <span id="cart-count">0</span>
-         </div>
-      </li>                   
-    </ul>
-                    <button id="menu-open-button" class="fas fa-bars"></button>
 
-                    </nav>
-                    <!-- CART UI -->
-<div id="cart-dropdown" class="cart-dropdown">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-
-  <div class="cart-footer">
-    <p>Total: KSh <span id="cart-total">0</span></p>
-    <button id="clear-cart-btn">Clear Cart</button>
-    <button id="checkout-btn" class="checkout-btn">Checkout</button>
-  </div>
-</div>
-
-
-    </header>
-    <main>
-        <!-- hero section -->
-        <section class="hero-section" id="home">
-            <div class="section-contents">
-                <div class="hero-details">
-                 <h2 class="title">Best Coffee</h2> 
-                 <h3 class="subtitle">Make your day great with some special coffee!</h3>  
-                 <p class="description">Welcome to our coffee paradise,where every bean tells a story and every cup sparks joy.</p>
-                 <div class="buttons">
-                    <a href="#menu" class="button order-now">Order Now</a>
-                    <a href="#contact" class="button contact-now">Contact Now</a>
-                 </div>
+<!-- ════════════════════════════ HEADER ════════════════════════════ -->
+<header>
+    <nav class="navbar section-content">
+        <a href="#" class="nav-logo">
+            <h2 class="logo-text">☕ Coffee</h2>
+        </a>
+        <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+            <li class="nav-item"><a href="#home"         class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about"        class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#menu"         class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="#gallery"      class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="#contact"      class="nav-link">Contact</a></li>
+            <li class="nav-item cart-container">
+                <div class="cart-icon" id="cart-icon">
+                    🛒 <span id="cart-count">0</span>
                 </div>
-                <div class="hero-image-wraper">
-                 <img src="images/coffee-hero-section.png" alt="" class="hero-image">
-               </div>
-            </div>
-        </section>
-    <!-- About section     -->
-     <section class="about-section" id="about">
-      <div class="about-content">
-        <div class="about-image-wraper">
-            <img src="images/about-image.jpg" alt="about" class="about-image">
+            </li>
+        </ul>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
 
+    <!-- ─── CART DROPDOWN ─────────────────────────────────────────────────── -->
+    <div id="cart-dropdown" class="cart-dropdown">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Total: KSh <span id="cart-total">0</span></p>
+            <button id="clear-cart-btn">Clear Cart</button>
+            <button id="checkout-btn" class="checkout-btn">Checkout</button>
         </div>
-        <div class="about-details">
-            <h2 class="section-title">About Us</h2>
-            <p class="text">At coffee House in Tabitha's Coffee,Kenya,we pride ourselves on being a go-to destination for coffee lovers and conversation seekers alike.We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere,where guests can relax,unwind,and enjoy their time in comfort.</p>
-            <div class="social-link-list">
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                
-               
-                
+    </div>
+</header>
+
+<!-- ════════════════════════════ MAIN ════════════════════════════ -->
+<main>
+
+    <!-- ─── HERO ──────────────────────────────────────────────────────────── -->
+    <section class="hero-section" id="home">
+        <div class="section-contents">
+            <div class="hero-details">
+                <h1 class="title">Best Coffee</h1>
+                <h2 class="subtitle">Make your day great with some special coffee!</h2>
+                <p class="description">Welcome to our coffee paradise, where every bean tells a story and every cup sparks joy.</p>
+                <div class="buttons">
+                    <a href="#menu"    class="button order-now">Order Now</a>
+                    <a href="#contact" class="button contact-now">Contact Now</a>
+                </div>
+            </div>
+            <div class="hero-image-wraper">
+                <img src="images/coffee-hero-section.png" alt="Premium Coffee Cup" class="hero-image">
             </div>
         </div>
+    </section>
 
-      </div>  
-     </section>
-     <!-- menu sction -->
-      <section class="menu-section" id="menu">
-  <h2 class="section-title"> Our Menu</h2>
-  <div class="section-content">
-    <ul class="menu-list">
+    <!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-image-wraper">
+                <img src="images/about-image.jpg" alt="About Tabitha's Coffee" class="about-image">
+            </div>
+            <div class="about-details">
+                <h2 class="section-title">About Us</h2>
+                <p class="text">At Coffee House in Tabitha's Coffee, Kenya, we pride ourselves on being a go-to destination for coffee lovers and conversation seekers alike. We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere, where guests can relax, unwind, and enjoy their time in comfort.</p>
+                <div class="social-link-list">
+                    <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-twitter"  aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="social-link"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <li class="menu-item">
-        <img src="images/hot-beverages.png" alt="hot beverage" class="menu-image">
-        <h3 class="name">Hot Beverages</h3>
-        <p class="detail">Wide range of steaming hot coffee to make you fresh and light.</p>
-        <p class="price">KSh 250</p>
-        <button class="add-to-cart" data-name="Hot Beverages" data-price="250">
-          Add to Cart
-        </button>
-      </li>
+    <!-- ─── MENU ──────────────────────────────────────────────────────────── -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="section-content">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <img src="images/hot-beverages.png"    alt="Hot Beverages"     class="menu-image">
+                    <h3 class="name">Hot Beverages</h3>
+                    <p class="detail">Wide range of steaming hot coffee to make you fresh and light.</p>
+                    <p class="price">KSh 250</p>
+                    <button class="add-to-cart" data-name="Hot Beverages"       data-price="250">Add to Cart</button>
+                </li>
+                <li class="menu-item">
+                    <img src="images/cold-beverages.png"   alt="Cold Beverages"    class="menu-image">
+                    <h3 class="name">Cold Beverages</h3>
+                    <p class="detail">Creamy and frothy cold coffee to make you cool.</p>
+                    <p class="price">KSh 280</p>
+                    <button class="add-to-cart" data-name="Cold Beverages"      data-price="280">Add to Cart</button>
+                </li>
+                <li class="menu-item">
+                    <img src="images/refreshment.png"      alt="Refreshment Drink" class="menu-image">
+                    <h3 class="name">Refreshment</h3>
+                    <p class="detail">Fruit and icy refreshing drink to make you feel refreshed.</p>
+                    <p class="price">KSh 200</p>
+                    <button class="add-to-cart" data-name="Refreshment"         data-price="200">Add to Cart</button>
+                </li>
+                <li class="menu-item">
+                    <img src="images/special-combo.png"    alt="Special Combos"    class="menu-image">
+                    <h3 class="name">Special Combos</h3>
+                    <p class="detail">Your favourite eating and drinking combinations.</p>
+                    <p class="price">KSh 450</p>
+                    <button class="add-to-cart" data-name="Special Combos"      data-price="450">Add to Cart</button>
+                </li>
+                <li class="menu-item">
+                    <img src="images/desserts.png"         alt="Desserts"          class="menu-image">
+                    <h3 class="name">Desserts</h3>
+                    <p class="detail">Satiate your plate and take you to a culinary treat.</p>
+                    <p class="price">KSh 350</p>
+                    <button class="add-to-cart" data-name="Desserts"            data-price="350">Add to Cart</button>
+                </li>
+                <li class="menu-item">
+                    <img src="images/burger-frenchfries.png" alt="Burger and Fries" class="menu-image">
+                    <h3 class="name">Burger &amp; French Fries</h3>
+                    <p class="detail">Quick bites to satisfy your small size hunger.</p>
+                    <p class="price">KSh 400</p>
+                    <button class="add-to-cart" data-name="Burger &amp; French Fries" data-price="400">Add to Cart</button>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-      <li class="menu-item">
-        <img src="images/cold-beverages.png" alt="cold beverage" class="menu-image">
-        <h3 class="name">Cold Beverages</h3>
-        <p class="detail">Creamy and frothy cold coffee to make you cool.</p>
-        <p class="price">KSh 280</p>
-        <button class="add-to-cart" data-name="Cold Beverages" data-price="280">
-          Add to Cart
-        </button>
-      </li>
-
-      <li class="menu-item">
-        <img src="images/refreshment.png" alt="refreshment drink" class="menu-image">
-        <h3 class="name">Refreshment</h3>
-        <p class="detail">Fruit and icy refreshing drink to make you feel refreshed.</p>
-        <p class="price">KSh 1</p>
-        <button class="add-to-cart" data-name="Refreshment" data-price="1">
-          Add to Cart
-        </button>
-      </li>
-
-      <li class="menu-item">
-        <img src="images/special-combo.png" alt="special combo" class="menu-image">
-        <h3 class="name">Special Combos</h3>
-        <p class="detail">Your favourite eating and drinking combinations.</p>
-        <p class="price">KSh 450</p>
-        <button class="add-to-cart" data-name="Special Combos" data-price="450">
-          Add to Cart
-        </button>
-      </li>
-
-      <li class="menu-item">
-        <img src="images/desserts.png" alt="desserts" class="menu-image">
-        <h3 class="name">Desserts</h3>
-        <p class="detail">Satiate your plate and take you to a culinary treat.</p>
-        <p class="price">KSh 350</p>
-        <button class="add-to-cart" data-name="Desserts" data-price="350">
-          Add to Cart
-        </button>
-      </li>
-
-      <li class="menu-item">
-        <img src="images/burger-frenchfries.png" alt="burger and fries" class="menu-image">
-        <h3 class="name">Burger & French Fries</h3>
-        <p class="detail">Quick bites to satisfy your small size hunger.</p>
-        <p class="price">KSh 400</p>
-        <button class="add-to-cart" data-name="Burger & French Fries" data-price="400">
-          Add to Cart
-        </button>
-      </li>
-
-    </ul>
-  </div>
-</section>
-    
-    <!-- testimonials section -->
+    <!-- ─── TESTIMONIALS ──────────────────────────────────────────────────── -->
     <section class="testimonials-section" id="testimonials">
         <h2 class="section-title">Testimonials</h2>
-            <div class="section-content">
-                <div class="slider-container swiper">
-                    <div class="slider-wrapper ">
-                        <ul class="testimonials-list swiper-wrapper ">
-                            <li class="testimanials swiper-slide">
-                                <img src="images/my.jpg" alt="user" class="user-image">
-                                <h3 class="name">Melvin Tabitha</h3>
-                                <i class="feedback">"Loved the French roast.Perfectly balanced and rich.Will order again!"</i>
-                            </li>
-                            <li class="testimanials swiper-slide">
-                                <img src="images/mine.jpg" alt="user" class="user-image">
-                                <h3 class="name">Shadrack Mwabe</h3>
-                                <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping too!"</i>
-                            </li>
-                            <li class="testimanials swiper-slide">
-                                <img src="images/ruth.jpg" alt="user" class="user-image">
-                                <h3 class="name">Ruth Daniels</h3>
-                                <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shoping!"</i>
-                            </li>
-                            <li class="testimanials swiper-slide">
-                                <img src="images/mi.jpg" alt="user" class="user-image">
-                                <h3 class="name">Samuel James</h3>
-                                <i class="feedback">"Exellent quality! Fresh beans and quick delivery.Highly recommend."</i>
-                            </li>
-                            
-                            <li class="testimanials swiper-slide">
-                                <img src="images/me.jpg" alt="user" class="user-image">
-                                <h3 class="name">Opondo Tabitha</h3>
-                                <i class="feedback">"Best decaf I've tried! Smooth and flavorful.Arrived promptly."</i>
-                            </li>
-                        </ul>
-                        <div class=" swiper-pagination"></div>
-                        <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-scrollbar"></div>
+        <div class="section-content">
+            <!-- Swiper container: prev/next buttons MUST be direct children of .slider-container -->
+            <div class="slider-container swiper">
+                <div class="slider-wrapper swiper-wrapper">
+                    <ul class="testimonials-list">
 
-                    </div>
+                        <li class="testimanials swiper-slide">
+                            <img src="images/my.jpg"   alt="Melvin Tabitha" class="user-image">
+                            <h3 class="name">Melvin Tabitha</h3>
+                            <i class="feedback">"Loved the French roast. Perfectly balanced and rich. Will order again!"</i>
+                        </li>
+
+                        <li class="testimanials swiper-slide">
+                            <img src="images/mine.jpg" alt="Shadrack Mwabe" class="user-image">
+                            <h3 class="name">Shadrack Mwabe</h3>
+                            <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping too!"</i>
+                        </li>
+
+                        <li class="testimanials swiper-slide">
+                            <img src="images/ruth.jpg" alt="Ruth Daniels"   class="user-image">
+                            <h3 class="name">Ruth Daniels</h3>
+                            <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shopping!"</i>
+                        </li>
+
+                        <li class="testimanials swiper-slide">
+                            <img src="images/mi.jpg"   alt="Samuel James"   class="user-image">
+                            <h3 class="name">Samuel James</h3>
+                            <i class="feedback">"Excellent quality! Fresh beans and quick delivery. Highly recommend."</i>
+                        </li>
+
+                        <li class="testimanials swiper-slide">
+                            <img src="images/me.jpg"   alt="Opondo Tabitha" class="user-image">
+                            <h3 class="name">Opondo Tabitha</h3>
+                            <i class="feedback">"Best decaf I've tried! Smooth and flavorful. Arrived promptly."</i>
+                        </li>
+
+                    </ul>
                 </div>
+                <!-- Navigation arrows & pagination OUTSIDE .swiper-wrapper -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-        
-
+        </div>
     </section>
-    <!-- gallery section -->
+
+    <!-- ─── GALLERY ───────────────────────────────────────────────────────── -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title">Gallery</h2>
         <div class="section-content">
             <ul class="gallery-list">
-                <li class="gallery-item">
-                    <img src="images/gallery-1.jpg" alt="Gallery" class="gallery-image">
-                </li>
-                
-                <li class="gallery-item">
-                    <img src="images/gallery-2.jpg" alt="Gallery" class="gallery-image">
-                </li>
-                
-                <li class="gallery-item">
-                    <img src="images/gallery-3.jpg" alt="Gallery" class="gallery-image">
-                </li>
-                
-                <li class="gallery-item">
-                    <img src="images/gallery-4.jpg" alt="Gallery" class="gallery-image">
-                </li>
-               
-                <li class="gallery-item">
-                    <img src="images/gallery-5.jpg" alt="Gallery" class="gallery-image">
-                </li>
-                
-                <li class="gallery-item">
-                    <img src="images/gallery-6.jpg" alt="Gallery" class="gallery-image">
-                </li>
+                <li class="gallery-item"><img src="images/gallery-1.jpg" alt="Coffee Gallery 1" class="gallery-image"></li>
+                <li class="gallery-item"><img src="images/gallery-2.jpg" alt="Coffee Gallery 2" class="gallery-image"></li>
+                <li class="gallery-item"><img src="images/gallery-3.jpg" alt="Coffee Gallery 3" class="gallery-image"></li>
+                <li class="gallery-item"><img src="images/gallery-4.jpg" alt="Coffee Gallery 4" class="gallery-image"></li>
+                <li class="gallery-item"><img src="images/gallery-5.jpg" alt="Coffee Gallery 5" class="gallery-image"></li>
+                <li class="gallery-item"><img src="images/gallery-6.jpg" alt="Coffee Gallery 6" class="gallery-image"></li>
             </ul>
         </div>
     </section>
-    <!-- Contact section -->
+
+    <!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
     <section class="contact-section" id="contact">
-        <h3 class="section-title">Contact Us</h3>
+        <h2 class="section-title">Contact Us</h2>
         <div class="contact-content">
             <ul class="contact-info-list">
-                 <li class="contact-info">
-                  <i class="fa-solid fa-location-crosshairs"></i>
-                  <p>Kenya, Nairobi, Kikuyu road</p>
-
-                </li>
-                <li class="contact-info">
-                  <i class="fa-regular fa-envelope"></i>
-                  <p>mtabitha738@gmail.com</p>
-
-                </li>
-                 <li class="contact-info">
-                  <i class="fa-solid fa-phone"></i>
-                  <p>(+254) 7-2956-3144</p>
-
-                </li>
-                 <li class="contact-info">
-                  <i class="fa-regular fa-clock"></i>
-                  <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-
-                </li>
-                 <li class="contact-info">
-                  <i class="fa-regular fa-clock"></i>
-                  <p>Sunday: Closed</p>
-
-                </li>
-                 <li class="contact-info">
-                  <i class="fa-solid fa-globe"></i>
-                  <p>www.codingweb.com</p>
-
-                </li>
-                
+                <li class="contact-info"><i class="fa-solid fa-location-crosshairs"></i><p>Kenya, Nairobi, Kikuyu Road</p></li>
+                <li class="contact-info"><i class="fa-regular fa-envelope"></i><p>mtabitha738@gmail.com</p></li>
+                <li class="contact-info"><i class="fa-solid fa-phone"></i><p>(+254) 729-563-144</p></li>
+                <li class="contact-info"><i class="fa-regular fa-clock"></i><p>Mon – Fri: 9:00 AM – 8:00 PM</p></li>
+                <li class="contact-info"><i class="fa-regular fa-clock"></i><p>Saturday: 10:00 AM – 6:00 PM</p></li>
+                <li class="contact-info"><i class="fa-regular fa-clock"></i><p>Sunday: Closed</p></li>
+                <li class="contact-info"><i class="fa-solid fa-globe"></i><p>www.tabithas-coffee.co.ke</p></li>
             </ul>
-            <form action="https://formspree.io/f/mbloqepp" method="POST" class="contact-form">
-                <input type="text" placeholder="Your name" class="form-input" name="name"  required>
-                <input type="email" placeholder="Your email " name="email"   class="form-input" required>
-                <textarea name="message"   class="form-message" placeholder="Your message" required></textarea>
-                <button type="submit" class=" submit-button">Submit</button>
 
+            <!-- Contact form — submits to Django backend via JS fetch -->
+            <form id="contact-form" class="contact-form" novalidate>
+                <input  type="text"  id="contact-name"    name="name"    placeholder="Your Name"    class="form-input" required>
+                <input  type="email" id="contact-email"   name="email"   placeholder="Your Email"   class="form-input" required>
+                <input  type="tel"   id="contact-phone"   name="phone"   placeholder="Phone (optional)" class="form-input">
+                <textarea            id="contact-message" name="message" placeholder="Your Message" class="form-message" required></textarea>
+                <!-- Inline feedback -->
+                <div id="contact-feedback" class="contact-feedback"></div>
+                <button type="submit" id="contact-submit" class="submit-button">Send Message</button>
             </form>
-            
-
         </div>
     </section>
-    <!-- footer -->
+
+    <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
     <footer class="footer-section">
-      <div class="footer-content">
-        <p class="copyright-text">@ 2026 Coffee Shop</p>
-        <div class="link-list">
-            <a href="#" class="sociallink"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        <div class="footer-content">
+            <p class="copyright-text">© 2026 Tabitha's Coffee Shop</p>
+            <div class="link-list">
+                <a href="#" class="sociallink"><i class="fab fa-facebook"  aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-twitter"   aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/melvin-tabitha-5abb782a2/" class="sociallink"><i class="fab fa-linkedin"  aria-hidden="true"></i></a>
+            </div>
+            <p class="policy-text">
+                <a href="#" class="policy-link">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#" class="policy-link">Refund Policy</a>
+            </p>
         </div>
-        <p class="policy-text">
-            <a href="#" class="policy-link">Private policy</a>
-            <span class="separator"></span>
-            <a href="#" class="policy-link">Refund policy</a>
-        </p>
-      </div>
     </footer>
-   <div id="checkout-modal" class="checkout-modal">
 
-  <div class="checkout-content">
+</main><!-- /main -->
 
-    <h2>Checkout</h2>
+<!-- ════════════════════════════ MODALS ════════════════════════════ -->
 
-    <!-- CART ITEMS -->
-    <div id="checkout-items"></div>
-
-    <h3>
-      Total: KSh <span id="checkout-total">0</span>
-    </h3>
-
-    <!-- CUSTOMER DETAILS -->
-    <input
-      type="text"
-      id="customer-name"
-      placeholder="Your Name"
-      required
-    />
-
-    <input
-      type="tel"
-      id="customer-phone"
-      placeholder="Phone Number (07XXXXXXXX)"
-      required
-    />
-
-    <small id="phone-error" class="error-text"></small>
-
-    <!-- PAYMENT STATUS (NEW - IMPORTANT) -->
-    <div id="payment-status" class="payment-status"></div>
-
-    <!-- ACTION BUTTONS -->
-    <div class="checkout-actions">
-
-      <button id="confirm-order">
-        Confirm & Pay via M-Pesa
-      </button>
-
-      <button id="close-checkout">
-        Cancel
-      </button>
-
+<!-- ─── CHECKOUT MODAL ─────────────────────────────────────────── -->
+<div id="checkout-modal" class="checkout-modal">
+    <div class="checkout-content">
+        <h2>Checkout</h2>
+        <div id="checkout-items"></div>
+        <h3>Total: KSh <span id="checkout-total">0</span></h3>
+        <input type="text" id="customer-name"  placeholder="Your Name"               required>
+        <input type="tel"  id="customer-phone" placeholder="Phone Number (07XXXXXXXX)" required>
+        <small id="phone-error" class="error-text"></small>
+        <div id="payment-status" class="payment-status"></div>
+        <div class="checkout-actions">
+            <button id="confirm-order">Confirm &amp; Pay via M-Pesa</button>
+            <button id="close-checkout">Cancel</button>
+        </div>
     </div>
-
-  </div>
-
 </div>
-<!-- CANCEL CONFIRM MODAL -->
+
+<!-- ─── CANCEL CONFIRM MODAL ──────────────────────────────────── -->
 <div id="cancel-modal" class="cancel-modal">
-  <div class="cancel-content">
-    <p>Are you sure you want to cancel your order?</p>
-
-    <div class="cancel-actions">
-      <button id="confirm-cancel">Yes, Cancel</button>
-      <button id="keep-order">Keep Order</button>
+    <div class="cancel-content">
+        <p>Are you sure you want to cancel your order?</p>
+        <div class="cancel-actions">
+            <button id="confirm-cancel">Yes, Cancel</button>
+            <button id="keep-order">Keep Order</button>
+        </div>
     </div>
-  </div>
 </div>
 
-
-  </div>
-</div>
-<!-- SUCCESS MODAL -->
+<!-- ─── SUCCESS MODAL ─────────────────────────────────────────── -->
 <div id="success-modal" class="success-modal">
-  <div class="success-content">
-
-    <div class="success-check">
-      ✓
+    <div class="success-content">
+        <div class="success-check">✓</div>
+        <h2>Payment Successful! 🎉</h2>
+        <p>Your coffee order is being prepared.</p>
+        <!-- Dynamic order details filled by JS -->
+        <div id="success-order-details" class="success-order-details"></div>
+        <button id="close-success">Done</button>
     </div>
-
-    <h2>Order Successful!</h2>
-
-    <p>Your coffee order has been placed successfully.</p>
-
-    <button id="close-success">Done</button>
-
-  </div>
 </div>
-<div id="payment-status-container"></div>
+
+<!-- ─── PAYMENT FAILED MODAL ───────────────────────────────────── -->
+<div id="failed-modal" class="failed-modal">
+    <div class="failed-content">
+        <div class="failed-icon">✕</div>
+        <h2>Payment Failed</h2>
+        <p id="failed-reason">Your M-Pesa payment was cancelled or failed. Please try again.</p>
+        <button id="close-failed">Close</button>
+    </div>
+</div>
+
+<!-- ─── PAYMENT TOAST (floating, bottom-right) ────────────────── -->
+<div id="payment-toast" class="payment-toast" role="alert" aria-live="polite"></div>
+
+<!-- ─── MENU OVERLAY ──────────────────────────────────────────── -->
 <div id="menu-overlay"></div>
-    </main>
-    <!-- linking swiper script -->
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- linking custom script -->
-    <script src="script.js"></script>
-    
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -2,8 +2,7 @@
 
 Welcome to **Coffee House**, a fully responsive coffee shop web application built using **HTML, CSS, JavaScript (frontend)** and **Django REST Framework (backend)** with **M-Pesa Daraja STK Push integration** for real-time payments.
 
-This project evolved from a simple frontend landing page into a **full-stack e-commerce-style ordering system** with live payment processing and order tracking.
-
+Payment Integration: This application integrates with the Safaricom Daraja Sandbox API to simulate real M-Pesa STK Push payments. The same architecture can be configured for production by replacing sandbox credentials with production credentials.
 
 ##  Features
 
@@ -23,14 +22,19 @@ This project evolved from a simple frontend landing page into a **full-stack e-c
 - ✅ Order status tracking endpoint
 - ✅ Payment model integration
 
-### 💳 M-Pesa Daraja Integration
-- ✅ STK Push initiation (Sim Toolkit prompt)
-- ✅ Callback handling from Safaricom Daraja API
-- ✅ Automatic payment status update (SUCCESS / FAILED)
-- ✅ Receipt number storage (MpesaReceiptNumber)
-- ✅ Payment tracking via CheckoutRequestID
-- ✅ Polling-based frontend payment status updates
+### 💳 M-Pesa Daraja API Integration (Safaricom Sandbox)
 
+This project integrates with the official **Safaricom Daraja Sandbox**, demonstrating a production-ready M-Pesa payment workflow. The implementation is designed to be easily migrated to the live Daraja environment by replacing sandbox credentials with production credentials.
+
+- ✅ Official Safaricom Daraja Sandbox integration
+- ✅ STK Push (Lipa na M-Pesa Online) payment initiation
+- ✅ Secure callback handling from the Daraja API
+- ✅ Real-time payment status tracking (Pending, Success, Failed)
+- ✅ Automatic order status updates after payment confirmation
+- ✅ M-Pesa receipt number (`MpesaReceiptNumber`) storage
+- ✅ Payment tracking using `CheckoutRequestID`
+- ✅ Frontend polling for live payment status updates
+- ✅ Backend-ready architecture for production deployment
 ---
 
 ## System Architecture
@@ -67,60 +71,122 @@ Frontend polls order status endpoint
 
 ---
 
-##  Project Structure
+## 📂 Project Structure
 
-
+```text
 coffee-website/
 │
 ├── coffeewebsite-frontend/
-│ ├── index.html
-│ ├── style.css
-│ └── script.js
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── assets/
 │
 ├── coffee-backend/
-│ ├── orders/
-│ │ ├── views.py
-│ │ ├── models.py
-│ │ ├── serializers.py
-│ │ ├── urls.py
-│ │ ├── mpesa.py
-│ │ └── utils.py
-│ │
-│ └── manage.py
+│   ├── coffee_backend/
+│   │
+│   ├── orders/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── mpesa.py
+│   │   └── utils.py
+│   │
+│   ├── contact/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── views.py
+│   │   └── urls.py
+│   │
+│   ├── manage.py
+│   └── requirements.txt
 │
 └── README.md
-
+```
 
 ---
 
 ## 🚀 API Endpoints
 
-### Orders
-- `POST /api/orders/` → Create order + trigger STK Push
-- `GET /api/orders/<id>/` → Get order payment status
+### 🛒 Orders
 
-### M-Pesa
-- `POST /api/mpesa/callback/` → Daraja payment callback
-- `POST /api/mpesa/stk/` → Manual STK push test endpoint
+| **POST** | `/api/orders/` | Create a customer order and initiate an M-Pesa STK Push |
+| **GET** | `/api/orders/<order_id>/` | Retrieve an order and its current payment status |
 
----
+### 💳 M-Pesa
 
-## 🔄 Payment Flow
+| **POST** | `/api/mpesa/callback/` | Receive payment callbacks from Safaricom Daraja |
+| **POST** | `/api/mpesa/stk/` | Test STK Push requests (development/sandbox) |
 
-1. User adds items to cart
-2. User enters name & phone number
-3. Backend creates order
-4. STK Push is sent to user phone
-5. User enters M-Pesa PIN
-6. Safaricom sends callback to backend
-7. Backend updates:
-   - Payment status
-   - Order status
-8. Frontend polls `/orders/<id>/`
-9. UI updates:
-   - Waiting → Success / Failed
+### 📩 Contact
 
----
+| **POST** | `/api/contact/` | Submit customer contact messages from the website |
+
+
+## 🔄 Payment Workflow
+
+
+Customer
+   │
+   ▼
+Browse Coffee Menu
+   │
+   ▼
+Add Items to Cart
+   │
+   ▼
+Proceed to Checkout
+   │
+   ▼
+Enter Name & Phone Number
+   │
+   ▼
+Frontend sends Order to Django API
+   │
+   ▼
+Order Created
+   │
+   ▼
+Safaricom Daraja Sandbox
+   │
+   ▼
+STK Push Sent to Customer Phone
+   │
+   ▼
+Customer Enters M-Pesa PIN
+   │
+   ▼
+Daraja Callback Received
+   │
+   ▼
+Backend Updates:
+   • Payment Status
+   • Order Status
+   • M-Pesa Receipt Number
+   │
+   ▼
+Frontend Polls Order Status
+   │
+   ▼
+Payment Status Updates in Real Time
+   │
+   ▼
+Order Successfully Completed ✅
+
+
+## 📩 Contact Workflow
+
+1. Customer fills out the **Contact Us** form.
+2. Frontend validates the input.
+3. Contact message is sent to the Django backend.
+4. Backend validates and stores the message.
+5. Customer receives immediate confirmation that the message has been submitted successfully.
+
+
+## 🔐 Note
+
+This project integrates with the **official Safaricom Daraja Sandbox**, implementing the complete M-Pesa payment lifecycle including STK Push initiation, callback handling, payment verification, and real-time frontend status updates. The architecture is designed for straightforward migration to the live Daraja production environment by replacing sandbox credentials with production credentials.
 
 ## 🚀 Getting Started
 
