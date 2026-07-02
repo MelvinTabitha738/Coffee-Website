@@ -36,7 +36,8 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    ".ngrok-free.dev"
+    
+    ".onrender.com",
 
 ]
 CORS_ALLOW_ALL_ORIGINS = True
