@@ -40,7 +40,11 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 
 ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOWED_ORIGINS = [
+    "https://urban-coffee-nu.vercel.app",
+]
 
 
 # Application definition
