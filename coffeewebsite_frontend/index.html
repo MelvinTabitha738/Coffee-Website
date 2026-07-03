@@ -30,13 +30,13 @@
             <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
             <li class="nav-item"><a href="#gallery"      class="nav-link">Gallery</a></li>
             <li class="nav-item"><a href="#contact"      class="nav-link">Contact</a></li>
-            <li class="nav-item cart-container">
-                <div class="cart-icon" id="cart-icon">
-                    🛒 <span id="cart-count">0</span>
-                </div>
-            </li>
         </ul>
-        <button id="menu-open-button" class="fas fa-bars"></button>
+        <div class="nav-actions">
+            <div class="cart-icon" id="cart-icon">
+                🛒 <span id="cart-count">0</span>
+            </div>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </div>
     </nav>
 
     <!-- ─── CART DROPDOWN ─────────────────────────────────────────────────── -->
@@ -148,41 +148,39 @@
         <div class="section-content">
             <!-- Swiper container: prev/next buttons MUST be direct children of .slider-container -->
             <div class="slider-container swiper">
-                <div class="slider-wrapper swiper-wrapper">
-                    <ul class="testimonials-list">
+                <ul class="slider-wrapper swiper-wrapper">
 
-                        <li class="testimanials swiper-slide">
-                            <img src="images/my.jpg"   alt="Melvin Tabitha" class="user-image">
-                            <h3 class="name">Melvin Tabitha</h3>
-                            <i class="feedback">"Loved the French roast. Perfectly balanced and rich. Will order again!"</i>
-                        </li>
+                    <li class="testimanials swiper-slide">
+                        <img src="images/my.jpg"   alt="Melvin Tabitha" class="user-image">
+                        <h3 class="name">Melvin Tabitha</h3>
+                        <i class="feedback">"Loved the French roast. Perfectly balanced and rich. Will order again!"</i>
+                    </li>
 
-                        <li class="testimanials swiper-slide">
-                            <img src="images/mine.jpg" alt="Shadrack Mwabe" class="user-image">
-                            <h3 class="name">Shadrack Mwabe</h3>
-                            <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping too!"</i>
-                        </li>
+                    <li class="testimanials swiper-slide">
+                        <img src="images/mine.jpg" alt="Shadrack Mwabe" class="user-image">
+                        <h3 class="name">Shadrack Mwabe</h3>
+                        <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping too!"</i>
+                    </li>
 
-                        <li class="testimanials swiper-slide">
-                            <img src="images/ruth.jpg" alt="Ruth Daniels"   class="user-image">
-                            <h3 class="name">Ruth Daniels</h3>
-                            <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shopping!"</i>
-                        </li>
+                    <li class="testimanials swiper-slide">
+                        <img src="images/ruth.jpg" alt="Ruth Daniels"   class="user-image">
+                        <h3 class="name">Ruth Daniels</h3>
+                        <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shopping!"</i>
+                    </li>
 
-                        <li class="testimanials swiper-slide">
-                            <img src="images/mi.jpg"   alt="Samuel James"   class="user-image">
-                            <h3 class="name">Samuel James</h3>
-                            <i class="feedback">"Excellent quality! Fresh beans and quick delivery. Highly recommend."</i>
-                        </li>
+                    <li class="testimanials swiper-slide">
+                        <img src="images/mi.jpg"   alt="Samuel James"   class="user-image">
+                        <h3 class="name">Samuel James</h3>
+                        <i class="feedback">"Excellent quality! Fresh beans and quick delivery. Highly recommend."</i>
+                    </li>
 
-                        <li class="testimanials swiper-slide">
-                            <img src="images/me.jpg"   alt="Opondo Tabitha" class="user-image">
-                            <h3 class="name">Opondo Tabitha</h3>
-                            <i class="feedback">"Best decaf I've tried! Smooth and flavorful. Arrived promptly."</i>
-                        </li>
+                    <li class="testimanials swiper-slide">
+                        <img src="images/me.jpg"   alt="Opondo Tabitha" class="user-image">
+                        <h3 class="name">Opondo Tabitha</h3>
+                        <i class="feedback">"Best decaf I've tried! Smooth and flavorful. Arrived promptly."</i>
+                    </li>
 
-                    </ul>
-                </div>
+                </ul>
                 <!-- Navigation arrows & pagination OUTSIDE .swiper-wrapper -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-prev"></div>

@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ═══════════════════════════════════════════
-     CONFIG
-  ═══════════════════════════════════════════ */
-  const BASE_URL   = "http://127.0.0.1:8000/api";
+
+  //  CONFIG
+
+  const BASE_URL = "https://urban-coffee.onrender.com/api";
   const ORDERS_URL = `${BASE_URL}/orders/`;
   const CONTACT_URL = `${BASE_URL}/contact/`;
 
-  /* ═══════════════════════════════════════════
-     SWIPER INITIALIZATION  ← FIX: was missing
-  ═══════════════════════════════════════════ */
+
+  //  SWIPER INITIALIZATION  
+
   const swiper = new Swiper(".slider-container", {
-    loop:            true,
-    grabCursor:      true,
-    spaceBetween:    20,
-    slidesPerView:   1,
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    slidesPerView: 1,
     autoplay: {
-      delay:             3500,
+      delay: 3500,
       disableOnInteraction: false,
     },
     pagination: {
-      el:        ".swiper-pagination",
+      el: ".swiper-pagination",
       clickable: true,
     },
     navigation: {
@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".swiper-button-prev",
     },
     breakpoints: {
-      640:  { slidesPerView: 1 },
-      900:  { slidesPerView: 2, spaceBetween: 30 },
+      640: { slidesPerView: 1 },
+      900: { slidesPerView: 2, spaceBetween: 30 },
       1200: { slidesPerView: 3, spaceBetween: 30 },
     }
   });
@@ -46,62 +46,62 @@ document.addEventListener("DOMContentLoaded", () => {
   ═══════════════════════════════════════════ */
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart = cart.map(item => ({
-    id:       item.id,
-    name:     item.name,
-    price:    Number(item.price),
+    id: item.id,
+    name: item.name,
+    price: Number(item.price),
     quantity: item.quantity ?? 1
   }));
 
   /* ═══════════════════════════════════════════
      ELEMENT REFERENCES
   ═══════════════════════════════════════════ */
-  const cartIcon        = document.getElementById("cart-icon");
-  const cartCount       = document.getElementById("cart-count");
-  const cartDropdown    = document.getElementById("cart-dropdown");
-  const cartItemsEl     = document.getElementById("cart-items");
-  const cartTotalEl     = document.getElementById("cart-total");
+  const cartIcon = document.getElementById("cart-icon");
+  const cartCount = document.getElementById("cart-count");
+  const cartDropdown = document.getElementById("cart-dropdown");
+  const cartItemsEl = document.getElementById("cart-items");
+  const cartTotalEl = document.getElementById("cart-total");
 
-  const checkoutBtn     = document.getElementById("checkout-btn");
-  const clearCartBtn    = document.getElementById("clear-cart-btn");
+  const checkoutBtn = document.getElementById("checkout-btn");
+  const clearCartBtn = document.getElementById("clear-cart-btn");
 
-  const checkoutModal   = document.getElementById("checkout-modal");
+  const checkoutModal = document.getElementById("checkout-modal");
   const checkoutItemsEl = document.getElementById("checkout-items");
   const checkoutTotalEl = document.getElementById("checkout-total");
-  const closeCheckout   = document.getElementById("close-checkout");
+  const closeCheckout = document.getElementById("close-checkout");
   const confirmOrderBtn = document.getElementById("confirm-order");
 
-  const cancelModal     = document.getElementById("cancel-modal");
+  const cancelModal = document.getElementById("cancel-modal");
   const confirmCancelBtn = document.getElementById("confirm-cancel");
-  const keepOrderBtn    = document.getElementById("keep-order");
+  const keepOrderBtn = document.getElementById("keep-order");
 
-  const successModal    = document.getElementById("success-modal");
+  const successModal = document.getElementById("success-modal");
   const closeSuccessBtn = document.getElementById("close-success");
-  const successDetails  = document.getElementById("success-order-details");
+  const successDetails = document.getElementById("success-order-details");
 
-  const failedModal     = document.getElementById("failed-modal");
-  const closeFailedBtn  = document.getElementById("close-failed");
-  const failedReason    = document.getElementById("failed-reason");
+  const failedModal = document.getElementById("failed-modal");
+  const closeFailedBtn = document.getElementById("close-failed");
+  const failedReason = document.getElementById("failed-reason");
 
-  const nameInput       = document.getElementById("customer-name");
-  const phoneInput      = document.getElementById("customer-phone");
+  const nameInput = document.getElementById("customer-name");
+  const phoneInput = document.getElementById("customer-phone");
   const paymentStatusBox = document.getElementById("payment-status");
 
-  const paymentToast    = document.getElementById("payment-toast");
+  const paymentToast = document.getElementById("payment-toast");
 
-  const addToCartBtns   = document.querySelectorAll(".add-to-cart");
-  const navLinks        = document.querySelectorAll(".nav-link");
-  const menuOpenBtn     = document.getElementById("menu-open-button");
-  const menuCloseBtn    = document.getElementById("menu-close-button");
-  const overlay         = document.getElementById("menu-overlay");
+  const addToCartBtns = document.querySelectorAll(".add-to-cart");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const menuOpenBtn = document.getElementById("menu-open-button");
+  const menuCloseBtn = document.getElementById("menu-close-button");
+  const overlay = document.getElementById("menu-overlay");
 
-  const contactForm     = document.getElementById("contact-form");
+  const contactForm = document.getElementById("contact-form");
   const contactFeedback = document.getElementById("contact-feedback");
-  const contactSubmit   = document.getElementById("contact-submit");
+  const contactSubmit = document.getElementById("contact-submit");
 
   /* ═══════════════════════════════════════════
      DYNAMIC ERROR ELEMENTS
   ═══════════════════════════════════════════ */
-  const nameError  = document.createElement("small");
+  const nameError = document.createElement("small");
   nameError.classList.add("error-text");
   nameInput?.after(nameError);
 
@@ -112,12 +112,50 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ═══════════════════════════════════════════
      NAV MOBILE MENU
   ═══════════════════════════════════════════ */
-  menuOpenBtn?.addEventListener("click",  () => document.body.classList.add("show-mobile-menu"));
+  menuOpenBtn?.addEventListener("click", () => document.body.classList.add("show-mobile-menu"));
   menuCloseBtn?.addEventListener("click", () => document.body.classList.remove("show-mobile-menu"));
-  overlay?.addEventListener("click",      () => document.body.classList.remove("show-mobile-menu"));
+  overlay?.addEventListener("click", () => document.body.classList.remove("show-mobile-menu"));
+
+  /* ─────────────────────────────────────────────
+     NAV LINK SCROLLING (FIXED)
+     - Works whether the link is an in-page anchor
+       (#home, #about, etc.) or a normal page link.
+     - Closes the mobile sidebar first, then scrolls
+       manually so it isn't dropped mid-transition,
+       and offsets for the fixed 80px header so the
+       section isn't hidden underneath it.
+  ───────────────────────────────────────────── */
+  const HEADER_OFFSET = 80;
 
   navLinks.forEach(link => {
-    link.addEventListener("click", () => document.body.classList.remove("show-mobile-menu"));
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href") || "";
+
+      // Only intercept real in-page anchors like "#about".
+      // Leave plain "#" or external links alone.
+      if (href.startsWith("#") && href.length > 1) {
+        const target = document.querySelector(href);
+
+        if (target) {
+          e.preventDefault();
+
+          // Close the mobile sidebar first
+          document.body.classList.remove("show-mobile-menu");
+
+          // Let the sidebar-close transition start, then scroll.
+          // (Also works instantly fine on desktop where there's no sidebar.)
+          requestAnimationFrame(() => {
+            const targetY = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+            window.scrollTo({ top: targetY, behavior: "smooth" });
+          });
+        } else {
+          // No matching section found — just close the menu.
+          document.body.classList.remove("show-mobile-menu");
+        }
+      } else {
+        document.body.classList.remove("show-mobile-menu");
+      }
+    });
   });
 
   /* ═══════════════════════════════════════════
@@ -129,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!paymentToast) return;
     clearTimeout(toastTimer);
     paymentToast.textContent = message;
-    paymentToast.className   = `payment-toast show toast-${type}`;
+    paymentToast.className = `payment-toast show toast-${type}`;
     toastTimer = setTimeout(() => {
       paymentToast.classList.remove("show");
     }, durationMs);
@@ -140,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ═══════════════════════════════════════════ */
   addToCartBtns.forEach(button => {
     button.addEventListener("click", () => {
-      const name  = button.dataset.name;
+      const name = button.dataset.name;
       const price = Number(button.dataset.price);
 
       const existing = cart.find(i => i.name === name);
@@ -173,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cartCount) cartCount.textContent = totalItems;
 
     if (clearCartBtn) clearCartBtn.style.display = totalItems > 0 ? "block" : "none";
-    if (checkoutBtn)  checkoutBtn.style.display  = totalItems > 0 ? "block" : "none";
+    if (checkoutBtn) checkoutBtn.style.display = totalItems > 0 ? "block" : "none";
 
     renderCartItems();
   }
@@ -205,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       div.querySelector(".increase-btn").addEventListener("click", () => changeQty(item.id, 1));
       div.querySelector(".decrease-btn").addEventListener("click", () => changeQty(item.id, -1));
-      div.querySelector(".remove-btn").addEventListener("click",   () => removeFromCart(item.id));
+      div.querySelector(".remove-btn").addEventListener("click", () => removeFromCart(item.id));
       cartItemsEl.appendChild(div);
     });
 
@@ -217,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ═══════════════════════════════════════════ */
   function changeQty(id, delta) {
     cart = cart.map(i => { if (i.id === id) i.quantity += delta; return i; })
-               .filter(i => i.quantity > 0);
+      .filter(i => i.quantity > 0);
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartUI();
   }
@@ -298,9 +336,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cancelModal?.classList.remove("active");
     // NOTE: We do NOT clear the cart here — user cancelled checkout, not the order.
     // The cart stays so they can try again.
-    nameInput.value  = "";
+    nameInput.value = "";
     phoneInput.value = "";
-    nameError.textContent  = "";
+    nameError.textContent = "";
     phoneError.textContent = "";
     if (paymentStatusBox) paymentStatusBox.innerHTML = "";
   });
@@ -328,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
      CONFIRM & PAY — M-PESA
   ═══════════════════════════════════════════ */
   confirmOrderBtn?.addEventListener("click", async () => {
-    const name  = nameInput.value.trim();
+    const name = nameInput.value.trim();
     const phone = phoneInput.value.trim();
 
     // ── Validate ────────────────────────────────────────────────────────────
@@ -347,24 +385,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
 
     const orderData = {
-      customer_name:  name,
+      customer_name: name,
       customer_phone: phone,
-      total_amount:   total,
-      items:          cart.map(i => ({ name: i.name, price: i.price, quantity: i.quantity }))
+      total_amount: total,
+      items: cart.map(i => ({ name: i.name, price: i.price, quantity: i.quantity }))
     };
 
     // ── Lock UI ─────────────────────────────────────────────────────────────
-    confirmOrderBtn.disabled    = true;
+    confirmOrderBtn.disabled = true;
     confirmOrderBtn.textContent = "⏳ Sending STK Push…";
     if (paymentStatusBox) {
       paymentStatusBox.innerHTML = "📲 Check your phone for the M-Pesa prompt…";
     }
 
     try {
-      const res  = await fetch(ORDERS_URL, {
-        method:  "POST",
+      const res = await fetch(ORDERS_URL, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(orderData)
+        body: JSON.stringify(orderData)
       });
 
       const data = await res.json();
@@ -385,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // ── STK sent — close checkout modal, start polling ───────────────────
       checkoutModal?.classList.remove("active");
-      nameInput.value  = "";
+      nameInput.value = "";
       phoneInput.value = "";
       if (paymentStatusBox) paymentStatusBox.innerHTML = "";
 
@@ -398,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("❌ Server error. Please try again.", "error");
 
     } finally {
-      confirmOrderBtn.disabled    = false;
+      confirmOrderBtn.disabled = false;
       confirmOrderBtn.textContent = "Confirm & Pay via M-Pesa";
     }
   });
@@ -408,15 +446,15 @@ document.addEventListener("DOMContentLoaded", () => {
      Polls every 3s for up to 90s (30 attempts)
   ═══════════════════════════════════════════ */
   function startPaymentPolling(orderId, meta) {
-    let attempts   = 0;
+    let attempts = 0;
     let errorCount = 0;
-    const MAX      = 30;
+    const MAX = 30;
 
     const interval = setInterval(async () => {
       attempts++;
 
       try {
-        const res  = await fetch(`${ORDERS_URL}${orderId}/`);
+        const res = await fetch(`${ORDERS_URL}${orderId}/`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -469,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Build order details HTML
     const receipt = data.mpesa_receipt || data.transaction_id || "N/A";
-    const items   = (data.items || [])
+    const items = (data.items || [])
       .map(i => `<div class="detail-row"><span>${i.name} × ${i.quantity}</span><span>KSh ${(parseFloat(i.price) * i.quantity).toLocaleString()}</span></div>`)
       .join("");
 
@@ -525,9 +563,9 @@ document.addEventListener("DOMContentLoaded", () => {
   contactForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name    = document.getElementById("contact-name")?.value.trim();
-    const email   = document.getElementById("contact-email")?.value.trim();
-    const phone   = document.getElementById("contact-phone")?.value.trim();
+    const name = document.getElementById("contact-name")?.value.trim();
+    const email = document.getElementById("contact-email")?.value.trim();
+    const phone = document.getElementById("contact-phone")?.value.trim();
     const message = document.getElementById("contact-message")?.value.trim();
 
     if (!name || !email || !message) {
@@ -535,14 +573,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    contactSubmit.disabled    = true;
+    contactSubmit.disabled = true;
     contactSubmit.textContent = "Sending…";
 
     try {
-      const res  = await fetch(CONTACT_URL, {
-        method:  "POST",
+      const res = await fetch(CONTACT_URL, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ name, email, phone, message })
+        body: JSON.stringify({ name, email, phone, message })
       });
 
       const data = await res.json();
@@ -561,7 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       showContactFeedback("❌ Network error. Please check your connection.", "error");
     } finally {
-      contactSubmit.disabled    = false;
+      contactSubmit.disabled = false;
       contactSubmit.textContent = "Send Message";
     }
   });
@@ -569,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showContactFeedback(msg, type) {
     if (!contactFeedback) return;
     contactFeedback.textContent = msg;
-    contactFeedback.className   = `contact-feedback ${type}`;
+    contactFeedback.className = `contact-feedback ${type}`;
     setTimeout(() => {
       contactFeedback.className = "contact-feedback";
     }, 7000);

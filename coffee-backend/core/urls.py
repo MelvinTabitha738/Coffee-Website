@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+
 # ─── Admin branding ──────────────────────────────────────────────────────────
 admin.site.site_header  = "☕ Tabitha's Coffee Admin"
 admin.site.site_title   = "Coffee Admin"
 admin.site.index_title  = "Welcome to the Coffee Dashboard"
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('api/', include('orders.urls')),
     path('api/', include('contact.urls')),
